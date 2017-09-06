@@ -1,0 +1,16 @@
+{
+  "name": "lost-fatec-api",
+  "version": "0.0.1",
+  "description": "api",
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "consign": "^0.1.6",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.4",
+    "jano-mysql": "^0.0.7",
+    "mongoose": "^4.11.10",
+    "shazam-middleware": "^0.1.0"
+  }
+}
