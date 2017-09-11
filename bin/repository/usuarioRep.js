@@ -1,11 +1,15 @@
-const webconfig = require('../webconfig');
-const mysql = require('jano-mysql')(webconfig.dataConfig.MYSQL);
+const usuario = require('../model/usuarioModel');
 
 module.exports = {
-    inserir: (nome) => {
-        return mysql.executeObject("INSERT INTO cliente SET ?", { NOME: nome });
-    },
-    inserirProc: (nome) => {
-        return mysql.readProcedure("CLIENTES", [1]);
+    save: () => {
+        return new Promise((resolve, reject) => {
+            usuario.create({ name: 'fluffy' }, (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                return resolve(result);
+            })
+        })
+
     }
 }

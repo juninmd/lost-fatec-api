@@ -1,6 +1,6 @@
-module.exports = (mongoose) => {
-    return mongoose.model('Usuario',
-        {
-            name: String
-        });
-} 
+var Schema = require('mongoose').Schema
+
+module.exports = db.model('usuario', new Schema(
+  {
+    name: { type: String, default: '', trim: true }
+  }))

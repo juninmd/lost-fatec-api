@@ -1,4 +1,4 @@
-const usuarioSrv = require('../service/usuarioSrv');
+const usuarioRep = require('../repository/usuarioRep');
 const usuarioMdl = require('../middleware/usuarioMdl');
 
 module.exports = (app) => {
@@ -15,7 +15,7 @@ module.exports = (app) => {
     })
 
     app.post("/usuario/", usuarioMdl.validateBody, (req, res, next) => {
-        usuarioSrv.validar(req.body.nome)
+        usuarioRep.save(req.body)
             .then(q => res.status(200).send(q))
             .catch(err => next(err))
     })
