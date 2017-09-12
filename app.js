@@ -1,7 +1,7 @@
-require('./bin/repository/mongo/mongoInit');
+require('./mongoInit');
 const app = require("express")();
 const consign = require('consign');
-require('dotenv').config({ path: `./bin/env/${process.env.NODE_ENV || 'development'}.env` })
+require('dotenv').config({ path: `./env/${process.env.NODE_ENV || 'development'}.env` })
 const webconfig = require('./bin/webconfig.js');
 
 consign({
