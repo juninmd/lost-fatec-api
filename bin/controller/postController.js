@@ -20,13 +20,13 @@ module.exports = (app) => {
     })
 
     app.put("/post/", (req, res, next) => {
-        postRep.update(req.query.nome)
+        postRep.update(req.body)
             .then(q => res.status(200).send(q))
             .catch(err => next(err))
     })
 
-    app.delete("/post/", (req, res, next) => {
-        postRep.delete(req.query.id)
+    app.delete("/post/:id", (req, res, next) => {
+        postRep.delete(req.params.id)
             .then(q => res.status(200).send(q))
             .catch(err => next(err))
     })

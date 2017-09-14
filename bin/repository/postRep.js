@@ -33,7 +33,7 @@ module.exports = {
     },
     update: (body) => {
         return new Promise((resolve, reject) => {
-            post.save(body, (err, result) => {
+            post.update(body, (err, result) => {
                 if (err) {
                     return reject(err);
                 }
