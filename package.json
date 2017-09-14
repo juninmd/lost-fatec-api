@@ -4,6 +4,9 @@
   "description": "api",
   "main": "app.js",
   "license": "MIT",
+  "scripts": {
+    "test": "mocha ./test/index.js"
+  },
   "dependencies": {
     "body-parser": "^1.17.2",
     "consign": "^0.1.6",
@@ -12,5 +15,9 @@
     "jano-mysql": "^0.0.7",
     "mongoose": "^4.11.11",
     "shazam-middleware": "^0.1.0"
+  },
+  "devDependencies": {
+    "should": "^13.0.1",
+    "supertest": "^3.0.0"
   }
 }

@@ -14,19 +14,19 @@ module.exports = (app) => {
     })
 
     app.post("/usuario/", (req, res, next) => {
-        usuarioRep.save(req.body)
+        usuarioRep.insert(req.body)
             .then(q => res.status(200).send(q))
             .catch(err => next(err))
     })
 
     app.put("/usuario/", (req, res, next) => {
-        usuarioRep.update(req.query.nome)
+        usuarioRep.update(req.body)
             .then(q => res.status(200).send(q))
             .catch(err => next(err))
     })
 
-    app.delete("/usuario/", (req, res, next) => {
-        usuarioRep.delete(req.query.ra)
+    app.delete("/usuario/:ra", (req, res, next) => {
+        usuarioRep.delete(req.params.ra)
             .then(q => res.status(200).send(q))
             .catch(err => next(err))
     })

@@ -13,7 +13,7 @@ module.exports = {
     },
     findById: (id) => {
         return new Promise((resolve, reject) => {
-            usuario.find({ id: id }, (err, result) => {
+            usuario.find({ ra: id }, (err, result) => {
                 if (err) {
                     return reject(err);
                 }
@@ -33,7 +33,7 @@ module.exports = {
     },
     update: (body) => {
         return new Promise((resolve, reject) => {
-            usuario.save(body, (err, result) => {
+            usuario.update(body, (err, result) => {
                 if (err) {
                     return reject(err);
                 }
@@ -41,14 +41,23 @@ module.exports = {
             })
         })
     },
-    delete: (body) => {
+    delete: (id) => {
         return new Promise((resolve, reject) => {
-            usuario.remove(body, (err, result) => {
+            usuario.find({ ra: id }, (err, body) => {
+                if (body.length == 0) {
+                    err = new Error('Não foi encontrado');
+                }
                 if (err) {
                     return reject(err);
                 }
-                return resolve(result);
+                usuario.remove(body[0], (err, result) => {
+                    if (err) {
+                        return reject(err);
+                    }
+                    return resolve(result);
+                })
             })
+
         })
     }
 }
