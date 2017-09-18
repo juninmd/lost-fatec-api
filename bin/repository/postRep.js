@@ -41,14 +41,23 @@ module.exports = {
             })
         })
     },
-    delete: (body) => {
+    delete: (id) => {
         return new Promise((resolve, reject) => {
-            post.remove(body, (err, result) => {
+            post.find({ id: id }, (err, body) => {
+                if (body.length == 0) {
+                    err = new Error('Não foi encontrado');
+                }
                 if (err) {
                     return reject(err);
                 }
-                return resolve(result);
+                usuario.remove(body[0], (err, result) => {
+                    if (err) {
+                        return reject(err);
+                    }
+                    return resolve(result);
+                })
             })
+
         })
     }
 }

@@ -8,7 +8,6 @@ consign({
     verbose: false
 }).include('kernel')
     .then('bin/controller')
-    .then('middleware')
     .into(app);
 
 app.listen(webconfig.myApi.port, () => {
