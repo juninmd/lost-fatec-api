@@ -60,3 +60,4 @@ typings/
 
 /doc/Documento de Requisitos.docx
 yarn.lock
+package-lock.json
