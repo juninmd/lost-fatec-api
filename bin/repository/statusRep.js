@@ -13,7 +13,7 @@ module.exports = {
     },
     findById: (id) => {
         return new Promise((resolve, reject) => {
-            status.find({ _id: id }, (err, result) => {
+            status.findOne({ _id: id }, (err, result) => {
                 if (err) {
                     return reject(err);
                 }

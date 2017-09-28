@@ -13,7 +13,7 @@ module.exports = {
     },
     findById: (id) => {
         return new Promise((resolve, reject) => {
-            usuario.find({ ra: id }, (err, result) => {
+            usuario.findOne({ ra: id }, (err, result) => {
                 if (err) {
                     return reject(err);
                 }

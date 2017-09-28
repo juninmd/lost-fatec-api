@@ -13,7 +13,7 @@ module.exports = {
     },
     findById: (id) => {
         return new Promise((resolve, reject) => {
-            categoria.find({ _id: id }, (err, result) => {
+            categoria.findOne({ _id: id }, (err, result) => {
                 if (err) {
                     return reject(err);
                 }
