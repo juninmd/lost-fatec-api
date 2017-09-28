@@ -13,7 +13,7 @@ module.exports = {
     },
     findById: (id) => {
         return new Promise((resolve, reject) => {
-            categoria.find({ id: id }, (err, result) => {
+            categoria.find({ _id: id }, (err, result) => {
                 if (err) {
                     return reject(err);
                 }
@@ -33,7 +33,7 @@ module.exports = {
     },
     update: (body) => {
         return new Promise((resolve, reject) => {
-            categoria.update(body, (err, result) => {
+            categoria.findOneAndUpdate({ _id: body._id }, body, (err, result) => {
                 if (err) {
                     return reject(err);
                 }
@@ -43,7 +43,7 @@ module.exports = {
     },
     delete: (id) => {
         return new Promise((resolve, reject) => {
-            categoria.find({ id: id }, (err, body) => {
+            categoria.find({ _id: id }, (err, body) => {
                 if (body.length == 0) {
                     err = new Error('Não foi encontrado');
                 }
