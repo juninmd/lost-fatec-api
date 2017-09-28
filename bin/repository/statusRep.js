@@ -13,7 +13,7 @@ module.exports = {
     },
     findById: (id) => {
         return new Promise((resolve, reject) => {
-            status.find({ id: id }, (err, result) => {
+            status.find({ _id: id }, (err, result) => {
                 if (err) {
                     return reject(err);
                 }
@@ -33,7 +33,7 @@ module.exports = {
     },
     update: (body) => {
         return new Promise((resolve, reject) => {
-            status.update(body, (err, result) => {
+            status.findOneAndUpdate({ _id: body._id }, body, (err, result) => {
                 if (err) {
                     return reject(err);
                 }
@@ -43,7 +43,7 @@ module.exports = {
     },
     delete: (id) => {
         return new Promise((resolve, reject) => {
-            status.find({ id: id }, (err, body) => {
+            status.find({ _id: id }, (err, body) => {
                 if (body.length == 0) {
                     err = new Error('Não foi encontrado');
                 }
