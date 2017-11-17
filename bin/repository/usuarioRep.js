@@ -11,11 +11,19 @@ module.exports = {
             })
         })
     },
-    findById: (id) => {
+    findUser: (body) => {
         return new Promise((resolve, reject) => {
-            usuario.findOne({ ra: id }, (err, result) => {
+            usuario.findOne({ ra: body.ra, senha: body.senha }, (err, result) => {
                 if (err) {
                     return reject(err);
+                }
+                if (!result) {
+                    return reject({
+                        message: {
+                            userMessage: "Usuário/Senha Inválido"
+                        },
+                        statusCode: 501
+                    })
                 }
                 return resolve(result);
             })
@@ -43,7 +51,7 @@ module.exports = {
     },
     delete: (id) => {
         return new Promise((resolve, reject) => {
-            usuario.find({ ra: id }, (err, body) => {
+            usuario.find({ _id: id }, (err, body) => {
                 if (body.length == 0) {
                     err = new Error('Não foi encontrado');
                 }

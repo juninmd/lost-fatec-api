@@ -3,7 +3,7 @@ describe('POST', () => {
         it('Cadastrar Post', (done) => {
             supertest
                 .post('/post', {
-                    "autor": "453664437",
+                    "usuario": "453664437",
                     "horario": "2017-09-18T23:22:14.845Z",
                     "descricao": "Teste",
                     "status": 1,
@@ -39,7 +39,7 @@ describe('POST', () => {
             supertest
                 .put('/post', {
                     "_id": "?",  //TODO TROCAR
-                    "autor": "453664437",
+                    "usuario": "453664437",
                     "horario": "2017-09-18T23:22:14.845Z",
                     "descricao": "Teste",
                     "status": 1,

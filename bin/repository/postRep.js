@@ -7,6 +7,7 @@ module.exports = {
                 .populate('categoria')
                 .populate('status')
                 .populate('local')
+                .populate('usuario')
                 .exec((err, result) => {
                     if (err) {
                         return reject(err);
