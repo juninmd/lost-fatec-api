@@ -7,6 +7,12 @@ module.exports = (app) => {
             .catch(err => next(err))
     })
 
+    app.get("/usuario/:id", (req, res, next) => {
+        usuarioRep.findById(req.params.id)
+            .then(q => res.status(200).send(q))
+            .catch(err => next(err))
+    })
+
     app.post("/usuario/login", (req, res, next) => {
         usuarioRep.findUser(req.body)
             .then(q => res.status(200).send(q))

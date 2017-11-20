@@ -11,6 +11,16 @@ module.exports = {
             })
         })
     },
+    findById: (id) => {
+        return new Promise((resolve, reject) => {
+            usuario.findOne({ _id: id }, (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                return resolve(result);
+            })
+        })
+    },
     findUser: (body) => {
         return new Promise((resolve, reject) => {
             usuario.findOne({ ra: body.ra, senha: body.senha }, (err, result) => {
