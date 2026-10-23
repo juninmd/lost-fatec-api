@@ -10,9 +10,11 @@ consign({
     .then('bin/controller')
     .into(app);
 
-app.listen(webconfig.myApi.port, () => {
-    console.log(`[${webconfig.myApi.name}] - Ativo :D | ${webconfig.myApi.url}:${webconfig.myApi.port}`);
-});
+if (process.env.NODE_ENV !== 'test') {
+    app.listen(webconfig.myApi.port, () => {
+        console.log(`[${webconfig.myApi.name}] - Ativo :D | ${webconfig.myApi.url}:${webconfig.myApi.port}`);
+    });
+}
 
 
 module.exports = app;

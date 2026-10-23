@@ -5,7 +5,7 @@
   "main": "app.js",
   "license": "MIT",
   "scripts": {
-    "test": "mocha ./test --recursive"
+    "test": "mocha ./test --recursive --exit"
   },
   "dependencies": {
     "body-parser": "^1.17.2",

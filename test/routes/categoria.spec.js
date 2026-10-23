@@ -46,7 +46,7 @@ describe('CATEGORIA', () => {
     describe('DELETE', () => {
         it('Deletar Categoria', (done) => {
             supertest
-                .delete('/categoria/?') //TODO TROCAR
+                .delete('/categoria/507f1f77bcf86cd799439011') //TODO TROCAR
                 .set('Accept', 'application/json')
                 .expect('Content-Type', /json/)
                 .expect(200, done);
