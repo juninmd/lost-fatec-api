@@ -5,7 +5,7 @@
   "main": "app.js",
   "license": "MIT",
   "scripts": {
-    "test": "mocha ./test --recursive"
+    "test": "mocha ./test --recursive --exit"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
@@ -17,6 +17,7 @@
     "shazam-middleware": "^0.1.2"
   },
   "devDependencies": {
+    "mocha": "^11.8.0",
     "should": "^13.0.1",
     "supertest": "^3.0.0"
   }
