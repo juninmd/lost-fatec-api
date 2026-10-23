@@ -51,7 +51,7 @@ These guidelines outline the principles and constraints for the development of A
 
 **8.  Testing Framework**
 
-*   [Specify the testing framework to be used, e.g., unittest, pytest.]
+*   Mocha (`npm test`, runs `mocha ./test --recursive`). Route tests need MongoDB at `localhost:27017`.
 
 These guidelines are intended as a starting point and may be adjusted based on the specific requirements of the AI coding agent. Regular review and updates are encouraged.  Any changes to these guidelines must be documented and communicated to the team.
 ```
